@@ -1,0 +1,21 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Pincode {
+  count      Int?
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  latitude   Float?
+  live       Boolean?
+  longitude  Float?
+  notYetLive Boolean?
+  pincode    Int?
+  targeted   Boolean?
+  updatedAt  DateTime @updatedAt
+}
